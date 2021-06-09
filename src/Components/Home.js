@@ -1,12 +1,13 @@
 import library from "../library.png";
+import { HomeDiv } from "../styles";
 
 const Home = () => {
   return (
-    <div>
+    <HomeDiv>
       <h1>Books Monster</h1>
       <p>this will be the best destination for Book worms and monsters </p>
       <img src={library} alt="library" />
-    </div>
+    </HomeDiv>
   );
 };
 
