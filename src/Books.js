@@ -3,6 +3,7 @@ const books = [
     id: 1,
     name: "life of Pie",
     price: 5,
+    slug: "life-of-pie",
     description:
       "An indian boy get lost in the sea with a Tiger named Reichard Parker ... ",
     img:
@@ -12,6 +13,7 @@ const books = [
     id: 2,
     name: "Harry Potter and the prisoner of azkaban",
     price: 4,
+    slug: "harry-otter",
     description:
       "Harry Potter continus his fight with the one that shall not be named and meets his godfather, Siris Black",
     img:
@@ -20,6 +22,7 @@ const books = [
   {
     id: 3,
     name: "The Bamboo Stalk",
+    slug: "the-bamboo-stalk",
     description:
       "Eissa is a half Philipinnes half Kuwaiti son, he never met his father, on the hopes of finding himself in his father he travels to kuwait, only to discover that things are no simple as the wah they seem ... ",
     price: 6,

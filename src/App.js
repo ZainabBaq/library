@@ -7,11 +7,9 @@ import BookDetails from "./Components/BookDetails";
 import books from "./Books";
 import { Route, Switch } from "react-router";
 import NavBar from "./Components/NavBar";
-function App() {
-  document.title = "Books Library";
 
+function App() {
   const [_products, setProducts] = useState(books);
-  const [currentBook, setCurrentBook] = useState(null);
   const [currentTheme, setCurrentTheme] = useState(
     localStorage.getItem("color")
       ? theme[localStorage.getItem("color")]
@@ -26,7 +24,6 @@ function App() {
       localStorage.setItem("color", "light");
     }
   };
-  console.log("HEllo");
 
   // condition ? true : false
 
@@ -34,36 +31,17 @@ function App() {
     let newBooks = _products.filter((book) => book.id !== bookID);
     setProducts(newBooks);
   };
-  const setView = () => {
-    if (currentBook)
-      return (
-        <BookDetails
-          book={currentBook}
-          setCurrentBook={setCurrentBook}
-          deleteBook={deleteBook}
-        />
-      );
-    else
-      return (
-        <BooksList
-          setCurrentBook={setCurrentBook}
-          books={_products}
-          deleteBook={deleteBook}
-        />
-      );
-  };
 
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={switchTheme} />
       <Switch>
+        <Route path="/books/:bookSlug">
+          <BookDetails books={_products} deleteBook={deleteBook} />
+        </Route>
         <Route path="/books" exact>
-          <BooksList
-            setCurrentBook={setCurrentBook}
-            books={_products}
-            deleteBook={deleteBook}
-          />
+          <BooksList books={_products} deleteBook={deleteBook} />
         </Route>
         <Route path="/" exact>
           <Home />
