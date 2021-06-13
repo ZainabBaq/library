@@ -1,9 +1,12 @@
 import { Item } from "../styles";
 import DeleteButton from "./Buttons/DeleteButton";
 import { Link } from "react-router-dom";
+import { deleteBook } from "../store/actions";
+import { useDispatch } from "react-redux";
 
 const Book = (props) => {
   const book = props.product;
+  const dispatch = useDispatch();
 
   return (
     <Item>
@@ -13,7 +16,7 @@ const Book = (props) => {
 
       <h3>{book.name}</h3>
       <p>{book.price} KD</p>
-      <DeleteButton deleteBook={props.deleteBook} bookId={book.id} />
+      <DeleteButton deleteBook={() => dispatch(deleteBook(book.id))} />
     </Item>
   );
 };

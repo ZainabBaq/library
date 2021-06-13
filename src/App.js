@@ -9,7 +9,6 @@ import { Route, Switch } from "react-router";
 import NavBar from "./Components/NavBar";
 
 function App() {
-  const [_products, setProducts] = useState(books);
   const [currentTheme, setCurrentTheme] = useState(
     localStorage.getItem("color")
       ? theme[localStorage.getItem("color")]
@@ -27,21 +26,16 @@ function App() {
 
   // condition ? true : false
 
-  const deleteBook = (bookID) => {
-    let newBooks = _products.filter((book) => book.id !== bookID);
-    setProducts(newBooks);
-  };
-
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={switchTheme} />
       <Switch>
         <Route path="/books/:bookSlug">
-          <BookDetails books={_products} deleteBook={deleteBook} />
+          <BookDetails />
         </Route>
         <Route path="/books" exact>
-          <BooksList books={_products} deleteBook={deleteBook} />
+          <BooksList />
         </Route>
         <Route path="/" exact>
           <Home />
