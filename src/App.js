@@ -4,9 +4,9 @@ import BooksList from "./Components/BooksList";
 import { ThemeProvider } from "styled-components";
 import { theme, GlobalStyle, ThemeButton } from "./styles";
 import BookDetails from "./Components/BookDetails";
-import books from "./Books";
 import { Route, Switch } from "react-router";
 import NavBar from "./Components/NavBar";
+import AddBook from "./Components/AddBook";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState(
@@ -31,6 +31,9 @@ function App() {
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={switchTheme} />
       <Switch>
+        <Route path="/books/new">
+          <AddBook />
+        </Route>
         <Route path="/books/:bookSlug">
           <BookDetails />
         </Route>

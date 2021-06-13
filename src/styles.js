@@ -6,8 +6,7 @@ export const NavItem = styled(NavLink)`
   font-size: 24px;
   color: ${(props) => props.theme.mainColor};
 
-  &.active {
-    color: ${(props) => props.theme.pink};
+  :hover {
     background-color: ${(props) => props.theme.mainColor};
   }
 `;
@@ -36,12 +35,14 @@ export const theme = {
     backgroundColor: "#EBF5DF", // main background color
     pink: "#ff85a2",
     textColor: "#242424",
+    darkGreen: "#346751",
   },
   dark: {
     mainColor: "#fefafb", // main font color
     backgroundColor: "#242424", // main background color
     pink: "#ff85a2",
     textColor: "#fefafb",
+    darkGreen: "#346751",
   },
 };
 
@@ -62,6 +63,8 @@ export const List = styled.div`
 
 export const Item = styled.div`
   width: 200px;
+  height: 555px;
+  position: relative;
   border-radius: 8px;
   margin-bottom: 30px;
   display: flex;
@@ -72,10 +75,19 @@ export const Item = styled.div`
     margin-top: 8px;
   }
   h3 {
+    text-align: center;
     padding: 5px;
   }
   .desc {
     padding: 10px;
+  }
+  button {
+    top: 84%;
+    position: absolute;
+  }
+  p {
+    top: 80%;
+    position: absolute;
   }
 `;
 
@@ -104,6 +116,12 @@ export const Details = styled.div`
   border-radius: 8px;
   text-align: center;
   background-color: ${(props) => props.theme.mainColor};
+  svg {
+    cursor: pointer;
+    :hover {
+      color: ${(props) => props.theme.pink};
+    }
+  }
 `;
 
 export const DeleteButtonStyled = styled.button`
@@ -118,4 +136,32 @@ export const DeleteButtonStyled = styled.button`
     background-color: #ff0000;
     color: white;
   }
+`;
+
+export const AddBookDiv = styled.div`
+  background: ${(props) => props.theme.mainColor};
+  border-radius: 15px;
+  padding: 30px;
+  margin: auto;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  align-items: center;
+  input {
+    height: 40px;
+    width: 300px;
+    border-radius: 4px;
+    border: 2px solid white;
+  }
+`;
+
+export const Button = styled.button`
+  height: 40px;
+  width: 150px;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  background: ${(props) => props.theme.darkGreen};
 `;

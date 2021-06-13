@@ -1,10 +1,10 @@
 import { useParams, Redirect } from "react-router";
-import { Details } from "../styles";
+import { Button, Details } from "../styles";
 import DeleteButton from "./Buttons/DeleteButton";
 import { useSelector } from "react-redux";
 import { deleteBook } from "../store/actions";
 import { useDispatch } from "react-redux";
-
+import { AiTwotoneEdit } from "react-icons/ai";
 const BookDetails = () => {
   const bookSlug = useParams().bookSlug;
   const books = useSelector((state) => state.books);
@@ -18,8 +18,9 @@ const BookDetails = () => {
       <h3>{book.name}</h3>
       <p>{book.description}</p>
       <p>{book.price} KD</p>
-      {/* <button onClick={() => props.setCurrentBook(null)}>Go back</button> */}
+
       <DeleteButton deleteBook={() => dispatch(deleteBook(book.id))} />
+      <AiTwotoneEdit size="1em" />
     </Details>
   );
 };
