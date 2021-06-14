@@ -1,5 +1,5 @@
 import booksData from "../Books";
-import { ADD_BOOK, DELETE_BOOK } from "./actions";
+import { ADD_BOOK, DELETE_BOOK, UPDATE_BOOK } from "./actions";
 import slugify from "slugify";
 
 const initialState = { books: booksData };
@@ -19,6 +19,15 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         books: [...state.books, newBook],
+      };
+    case UPDATE_BOOK:
+      const { updatedBook } = action.payload; //3
+      updatedBook.slug = slugify(updatedBook.name);
+      return {
+        ...state,
+        books: state.books.map((book) =>
+          book.id === updatedBook.id ? updatedBook : book
+        ),
       };
     default:
       return state;

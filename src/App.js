@@ -31,7 +31,7 @@ function App() {
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={switchTheme} />
       <Switch>
-        <Route path="/books/new">
+        <Route path={["/books/new", "/books/:bookSlug/edit"]}>
           <AddBook />
         </Route>
         <Route path="/books/:bookSlug">

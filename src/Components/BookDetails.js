@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { deleteBook } from "../store/actions";
 import { useDispatch } from "react-redux";
 import { AiTwotoneEdit } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const BookDetails = () => {
   const bookSlug = useParams().bookSlug;
   const books = useSelector((state) => state.books);
@@ -20,7 +21,9 @@ const BookDetails = () => {
       <p>{book.price} KD</p>
 
       <DeleteButton deleteBook={() => dispatch(deleteBook(book.id))} />
-      <AiTwotoneEdit size="1em" />
+      <Link to={`/books/${book.slug}/edit`}>
+        <AiTwotoneEdit size="1em" />
+      </Link>
     </Details>
   );
 };
