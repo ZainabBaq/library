@@ -72,6 +72,7 @@ export const Item = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.mainColor};
   img {
+    width: 200px;
     margin-top: 8px;
   }
   h3 {
