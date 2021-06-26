@@ -27,6 +27,10 @@ function AddBook() {
     setBook({ ...book, [event.target.name]: event.target.value });
   };
 
+  const handleImage = (event) => {
+    setBook({ ...book, img: event.target.files[0] });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (updatedBook) dispatch(updateBook(book));
@@ -58,9 +62,8 @@ function AddBook() {
           placeholder="enter book description"
         />
         <input
-          value={book.img}
-          onChange={handleChange}
-          type="text"
+          onChange={handleImage}
+          type="file"
           name="img"
           placeholder="paste image address here"
         />

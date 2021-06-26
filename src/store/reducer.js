@@ -12,7 +12,7 @@ const reducer = (state = initialState, action) => {
     case DELETE_BOOK:
       return {
         ...state,
-        books: state.books.filter((book) => book.id != action.payload.bookId),
+        books: state.books.filter((book) => book.id !== action.payload.bookId),
       };
     case ADD_BOOK:
       return {

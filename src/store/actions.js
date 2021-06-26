@@ -21,8 +21,9 @@ export const deleteBook = (bookId) => {
 export const addBook = (newBook) => {
   return async (dispatch) => {
     try {
-      const res = await axios.post("http://localhost:8000/books", newBook);
-
+      const formData = new FormData();
+      for (const key in newBook) formData.append(key, newBook[key]);
+      const res = await axios.post("http://localhost:8000/books", formData);
       dispatch({
         type: ADD_BOOK,
         payload: { newBook: res.data },
@@ -36,9 +37,11 @@ export const addBook = (newBook) => {
 export const updateBook = (updatedBook) => {
   return async (dispatch) => {
     try {
+      const formData = new FormData();
+      for (const key in updatedBook) formData.append(key, updatedBook[key]);
       const res = await axios.put(
         `http://localhost:8000/books/${updatedBook.id}`,
-        updatedBook
+        formData
       );
       dispatch({
         type: UPDATE_BOOK,
