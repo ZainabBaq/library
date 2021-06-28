@@ -1,25 +1,24 @@
-import { ADD_BOOK, DELETE_BOOK, FETCH_BOOKS, UPDATE_BOOK } from "./actions";
-
+import * as actionTypes from "../actions/types";
 const initialState = { books: [] };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_BOOKS:
+    case actionTypes.FETCH_BOOKS:
       return {
         ...state,
         books: action.payload,
       };
-    case DELETE_BOOK:
+    case actionTypes.DELETE_BOOK:
       return {
         ...state,
         books: state.books.filter((book) => book.id !== action.payload.bookId),
       };
-    case ADD_BOOK:
+    case actionTypes.ADD_BOOK:
       return {
         ...state,
         books: [...state.books, action.payload.newBook],
       };
-    case UPDATE_BOOK:
+    case actionTypes.UPDATE_BOOK:
       const { updatedBook } = action.payload; //3
       // updatedBook.slug = slugify(updatedBook.name);
       return {

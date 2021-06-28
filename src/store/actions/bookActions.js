@@ -1,15 +1,12 @@
 import axios from "axios";
-export const DELETE_BOOK = "DELETE_BOOK";
-export const ADD_BOOK = "ADD_BOOK";
-export const UPDATE_BOOK = "UPDATE_BOOK";
-export const FETCH_BOOKS = "FETCH_BOOKS";
+import * as actionTypes from "./types";
 
 export const deleteBook = (bookId) => {
   return async (dispatch) => {
     try {
       await axios.delete(`http://localhost:8000/books/${bookId}`);
       dispatch({
-        type: DELETE_BOOK,
+        type: actionTypes.DELETE_BOOK,
         payload: { bookId: bookId },
       });
     } catch (error) {
@@ -18,14 +15,18 @@ export const deleteBook = (bookId) => {
   };
 };
 
-export const addBook = (newBook) => {
+export const addBook = (newBook, libraryId) => {
   return async (dispatch) => {
     try {
       const formData = new FormData();
       for (const key in newBook) formData.append(key, newBook[key]);
-      const res = await axios.post("http://localhost:8000/books", formData);
+      const res = await axios.post(
+        `http://localhost:8000/libraries/${libraryId}/books`,
+        formData
+      );
+
       dispatch({
-        type: ADD_BOOK,
+        type: actionTypes.ADD_BOOK,
         payload: { newBook: res.data },
       });
     } catch (error) {
@@ -44,7 +45,7 @@ export const updateBook = (updatedBook) => {
         formData
       );
       dispatch({
-        type: UPDATE_BOOK,
+        type: actionTypes.UPDATE_BOOK,
         payload: { updatedBook: res.data },
       });
     } catch (error) {
@@ -58,7 +59,7 @@ export const fetchBooks = () => {
     try {
       const res = await axios.get("http://localhost:8000/books");
       dispatch({
-        type: FETCH_BOOKS,
+        type: actionTypes.FETCH_BOOKS,
         payload: res.data,
       });
     } catch (error) {

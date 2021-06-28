@@ -17,12 +17,20 @@ const NavBar = (props) => {
           Books
         </NavItem>
 
-        <NavItem
+        {/* <NavItem
           className="nav-item"
           to="/books/new"
           style={{ padding: "0.25em 1em" }}
         >
           Add Book
+        </NavItem> */}
+
+        <NavItem
+          className="nav-item"
+          to="/libraries"
+          style={{ padding: "0.25em 1em" }}
+        >
+          Libraries
         </NavItem>
 
         <ThemeButton className="nav-item" onClick={props.toggleTheme}>

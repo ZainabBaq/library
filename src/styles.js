@@ -61,6 +61,27 @@ export const List = styled.div`
   gap: 30px;
 `;
 
+export const LibraryItem = styled.div`
+  width: 200px;
+  margin: auto;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    background-color: ${(props) => props.theme.mainColor};
+    padding: 10px;
+    width: 200px;
+    margin-top: 8px;
+  }
+  h3 {
+    text-align: center;
+    padding: 5px;
+  }
+`;
 export const Item = styled.div`
   width: 200px;
   height: 555px;
@@ -136,6 +157,21 @@ export const DeleteButtonStyled = styled.button`
   :hover {
     background-color: #ff0000;
     color: white;
+  }
+`;
+
+export const AddBookButton = styled.button`
+  font-size: 1em;
+  margin-top: 15px;
+  padding: 0.25em 1em;
+
+  border-radius: 3px;
+  background-color: #346751;
+  color: white;
+  border: none;
+  :hover {
+    background-color: white;
+    color: #346751;
   }
 `;
 

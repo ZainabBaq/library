@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { AddBookDiv, Button, ThemeButton } from "../styles";
-import { addBook, updateBook } from "../store/actions";
+import { AddBookDiv, Button, ThemeButton } from "../../styles";
+import { addBook, updateBook } from "../../store/actions/bookActions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 
 function AddBook() {
+  const libraryId = useParams().libraryId;
   const bookSlug = useParams().bookSlug;
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books.books);
 
   const updatedBook = books.find((b) => b.slug === bookSlug);
 
@@ -34,7 +35,7 @@ function AddBook() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (updatedBook) dispatch(updateBook(book));
-    else dispatch(addBook(book));
+    else dispatch(addBook(book, libraryId));
     history.push("/books");
   };
   return (

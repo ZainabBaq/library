@@ -1,12 +1,11 @@
 import { useState } from "react";
 import Book from "./Book";
-import { List } from "../styles";
-import SearchBar from "./SearchBar";
-import { useSelector } from "react-redux";
+import { List } from "../../styles";
+import SearchBar from "../SearchBar";
 
 const BooksList = (props) => {
   const [query, setQuery] = useState("");
-  const books = useSelector((state) => state.books);
+  const books = props.books;
 
   let arrayOfBooks = books
     .filter((book) => book.name.toLowerCase().includes(query.toLowerCase()))

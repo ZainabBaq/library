@@ -1,7 +1,7 @@
-import { Item } from "../styles";
-import DeleteButton from "./Buttons/DeleteButton";
+import { Item } from "../../styles";
+import DeleteButton from "../Buttons/DeleteButton";
 import { Link } from "react-router-dom";
-import { deleteBook } from "../store/actions";
+import { deleteBook } from "../../store/actions/bookActions";
 import { useDispatch } from "react-redux";
 
 const Book = (props) => {
