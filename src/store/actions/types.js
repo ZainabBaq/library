@@ -7,3 +7,6 @@ export const FETCH_BOOKS = "FETCH_BOOKS";
 //library actions
 export const FETCH_LIBRAREIS = "FETCH_LIBRAREIS";
 export const CREATE_LIBRARY = "CREATE_LIBRARY";
+
+//auth actions
+export const SIGNUP = "SIGNUP";

@@ -6,6 +6,7 @@ import BookDetails from "./Books/BookDetails";
 import LibraryDetails from "./Library/LibraryDetails";
 import LibrariesList from "./Library/LibrariesList";
 import Home from "./Home";
+import SignUp from "./SignUp";
 
 function Routes({ books }) {
   return (
@@ -21,7 +22,9 @@ function Routes({ books }) {
       <Route path="/libraries">
         <LibrariesList />
       </Route>
-
+      <Route path="/signup">
+        <SignUp />
+      </Route>
       <Route path="/books/:bookSlug">
         <BookDetails />
       </Route>

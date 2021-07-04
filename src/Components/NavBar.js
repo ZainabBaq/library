@@ -32,6 +32,13 @@ const NavBar = (props) => {
         >
           Libraries
         </NavItem>
+        <NavItem
+          className="nav-item"
+          to="/signup"
+          style={{ padding: "0.25em 1em" }}
+        >
+          Sign up
+        </NavItem>
 
         <ThemeButton className="nav-item" onClick={props.toggleTheme}>
           {props.currentTheme === "light" ? "Dark" : "Light"} Mode
