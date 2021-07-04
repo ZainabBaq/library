@@ -1,6 +1,22 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 
+const fadeInOut = keyframes`
+0%{
+  opacity:0 ;
+}
+50%{
+  opacity:0.5;
+}
+100%{
+  opacity:1;
+}
+
+`;
+
+export const Loading = styled.div`
+  margin: auto;
+`;
 export const NavItem = styled(NavLink)`
   padding: 0.25em 1em;
   font-size: 24px;

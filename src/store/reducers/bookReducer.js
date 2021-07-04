@@ -1,5 +1,5 @@
 import * as actionTypes from "../actions/types";
-const initialState = { books: [] };
+const initialState = { books: [], loading: true };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -7,6 +7,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         books: action.payload,
+        loading: false,
       };
     case actionTypes.DELETE_BOOK:
       return {

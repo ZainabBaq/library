@@ -1,5 +1,5 @@
 import * as actionTypes from "../actions/types";
-const initialState = { libraries: [] };
+const initialState = { libraries: [], loading: true };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -7,6 +7,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         libraries: action.payload,
+        loading: false,
       };
 
     default:
