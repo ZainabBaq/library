@@ -7,6 +7,7 @@ import LibraryDetails from "./Library/LibraryDetails";
 import LibrariesList from "./Library/LibrariesList";
 import Home from "./Home";
 import SignUp from "./SignUp";
+import SignIn from "./SignIn";
 
 function Routes({ books }) {
   return (
@@ -24,6 +25,9 @@ function Routes({ books }) {
       </Route>
       <Route path="/signup">
         <SignUp />
+      </Route>
+      <Route path="/signin">
+        <SignIn />
       </Route>
       <Route path="/books/:bookSlug">
         <BookDetails />

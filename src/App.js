@@ -36,7 +36,7 @@ function App() {
           <BeatLoader size={40} />
         </Loading>
       ) : (
-        <Routes books={books} />
+        <Routes books={books} currentTheme={currentTheme} />
       )}
     </ThemeProvider>
   );

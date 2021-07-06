@@ -10,3 +10,4 @@ export const CREATE_LIBRARY = "CREATE_LIBRARY";
 
 //auth actions
 export const SIGNUP = "SIGNUP";
+export const SET_USER = "SET_USER";

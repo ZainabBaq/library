@@ -129,9 +129,17 @@ export const Item = styled.div`
   }
 `;
 
-export const ThemeButton = styled.button`
+export const NavButtons = styled.div`
   position: absolute;
   right: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  h3 {
+    color: white;
+  }
+`;
+export const ThemeButton = styled.button`
   font-size: 1em;
   padding: 0.25em 1em;
   border-radius: 3px;
